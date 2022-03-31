@@ -138,4 +138,4 @@ end
 # Suppression efficacy score 
 #################################
 
-# Visuals = Tables made in Latex using outputs from analysis.jl file functions 
+# Visuals = Tables made in Latex using outputs from analysis_*.jl files (df.eff_score)
