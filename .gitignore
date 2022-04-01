@@ -29,7 +29,7 @@ docs/site/
 .DS_Store
 
 #Figures
-#*.pdf
+*.pdf
 *.ipynb
 
 #Manifest.toml
