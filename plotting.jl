@@ -55,9 +55,11 @@ function make_pctchange_plots(trace_data)
     colors = range(c1, stop=c2, length=length(plotting_traces))
     layout = Layout(;
             plot_bgcolor = "white",
-            #title= attr(text = "Percent Change Reduction under Alternative Operational Considerations<br>for Wolbachia-Infected Ae. Aegypti Mosquitoes", xanchor = "center", x=0.5, yanchor="top"),
-            title= attr(text = "Percent Change Reduction under Alternative Operational Considerations<br>for OX513A-Modified Ae. Aegypti Mosquitoes", xanchor = "center", x=0.5, yanchor="top"),
-            xaxis=attr(title="Time in Days (January - December)",  gridcolor = "LightGray", showgrid=true, #zeroline=false,
+            title= attr(text = "Percent Change Reduction under Alternative Operational Considerations<br>for Wolbachia-Infected Ae. Aegypti Mosquitoes", xanchor = "center", x=0.5, yanchor="top"),
+            #title= attr(text = "Percent Change Reduction under Alternative Operational Considerations<br>for OX513A-Modified Ae. Aegypti Mosquitoes", xanchor = "center", x=0.5, yanchor="top"),
+            xaxis=attr(title="Time in Days (January - December)",  
+            gridcolor = "LightGray", showgrid=true, gridwidth=1,
+            #zeroline=true, zerolinewidth=3, zerolinecolor="LightGray",
             tickfont_size = 11, tick0 = 0, dtick = 20),
             yaxis=attr(title="Percent Change in Wild Female Population",
             yanchor = "center", y=0.5, gridcolor = "LightGray", showgrid = true, zeroline=false),
@@ -122,15 +124,17 @@ function make_timetotarget_plots(trace_data)
     colors = range(c1, stop=c2, length=length(plotting_traces))
     layout = Layout(;
             plot_bgcolor = "white",
-            #title=attr(text = "Time to Reduction Target under Alternative Operational Considerations<br>for Wolbachia-Infected Ae. Aegypti Mosquitoes", xanchor = "center", x=0.5, yanchor="top"),
-            title=attr(text = "Time to Reduction Target under Alternative Operational Considerations<br>for OX513A-Modified Ae. Aegypti Mosquitoes", xanchor = "center", x=0.5, yanchor="top"),
-            xaxis=attr(title="Time in Days (January - December)",  gridcolor = "LightGray", showgrid=true, zeroline=false,
+            title=attr(text = "Time to Reduction Target under Alternative Operational Considerations<br>for Wolbachia-Infected Ae. Aegypti Mosquitoes", xanchor = "center", x=0.5, yanchor="top"),
+            #title=attr(text = "Time to Reduction Target under Alternative Operational Considerations<br>for OX513A-Modified Ae. Aegypti Mosquitoes", xanchor = "center", x=0.5, yanchor="top"),
+            xaxis=attr(title="Time in Days (January - December)",  
+            gridcolor = "LightGray", showgrid=true, zeroline=false,
             tickfont_size = 11, tick0 = 0, dtick = 20),
             yaxis=attr(title="Total Reduction Achieved (% of Population)",
             yanchor = "center", y=0.5, gridcolor = "LightGray", showgrid = true, zeroline=false),
             legend=attr(legendgrouptitle="Operational Details", font_size=11, yanchor="bottom", y=-.23, xanchor="center", x=0.5, orientation="h"),
             titlefont_size = 16, colorway=colors)
     sort!(plotting_traces, by = (t) -> temperature_key_map[t.fields[:base_series]])#, rev=true)
+    
     return plot(plotting_traces, layout)
 end
 

@@ -1,5 +1,6 @@
 # Move this data to GitHub folder 
 results_path = "/Volumes/EMTEC_B250/WOLBACHIA_REVISEDmetrics/"
+results_path = "/Volumes/EMTEC_B250/removed_from_wolb/"
 
 # Options: "fixed100" vs "fixed50"
 wolb = analyze_results(results_path, "wolbachia10", "fixed100", 4, 70);
@@ -18,6 +19,10 @@ df_wolb = DataFrame(name = dfnames, eff_score = eff_score,
     time_to_each_reduction_threshold = days_to_achieve_reduction_thresholds)
 
 # Run analyses x3 
-make_pctchange_plots(wolb)
-make_timetotarget_plots(wolb)
-df_wolb.eff_score
+p = make_pctchange_plots(wolb)
+PlotlyJS.savefig(p, "./WOLBACHIA_percentchange.pdf",width = 900, height = 600,format = "pdf")
+
+p = make_timetotarget_plots(wolb)
+PlotlyJS.savefig(p, "./WOLBACHIA_timetotarget.pdf",width = 900, height = 600,format = "pdf")
+
+df_wolb.eff_score # for table 

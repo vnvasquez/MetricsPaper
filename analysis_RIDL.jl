@@ -1,5 +1,6 @@
 # Move this data to GitHub folder 
 results_path = "/Volumes/EMTEC_B250/RIDL_REVISEDmetrics/"
+# results_path = "../Data"
 
 # Options: "fixed40000" vs "fixed60000"
 ridl = analyze_results(results_path, "ridlMID", "fixed40000", 21, 70); 
@@ -17,7 +18,11 @@ df_ridl = DataFrame(name = dfnames, eff_score = eff_score,
     time_to_policy_goal = time_to_achieve_public_health_target, 
     time_to_each_reduction_threshold = days_to_achieve_reduction_thresholds)
 
-# Run analyses x3 
-make_pctchange_plots(ridl)
-make_timetotarget_plots(ridl)
-df_ridl.eff_score
+# Run analyses x3, pdf results  
+p = make_pctchange_plots(ridl)
+PlotlyJS.savefig(p, "./RIDL_percentchange.pdf",width = 900, height = 600,format = "pdf")
+
+p = make_timetotarget_plots(ridl)
+PlotlyJS.savefig(p, "./RIDL_timetotarget.pdf",width = 900, height = 600,format = "pdf")
+
+df_ridl.eff_score # for table 
