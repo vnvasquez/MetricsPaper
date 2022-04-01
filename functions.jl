@@ -224,12 +224,7 @@ return D
 end
 
 csv_path = "/Volumes/EMTEC_B250/"
-original_file = CSV.read(joinpath(csv_path, "orderedTAVG.csv"), DataFrame)
-new_file = original_file[(original_file.Year.>2015) .& (original_file.Year.<2019),:] 
-CSV.write("metrics_orderedTAVG.csv", new_file)
-
 temperature_key = sort!(CSV.read(joinpath(csv_path, "metrics_orderedTAVG.csv"), DataFrame),[:Order])[!,2:end];
-# push!(temperature_key,[0 27.0 "temp" 0 "temp27lab"]) not using baseline anymore 
 const temperature_key_map = df2dict(temperature_key, :Concatenated;  val_col=:AAVG)
 
 #################################
