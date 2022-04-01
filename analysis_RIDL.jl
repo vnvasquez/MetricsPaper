@@ -1,6 +1,5 @@
-# Move this data to GitHub folder 
+# Data added to Figshare 
 results_path = "/Volumes/EMTEC_B250/RIDL_REVISEDmetrics/"
-# results_path = "../Data"
 
 # Options: "fixed40000" vs "fixed60000"
 ridl = analyze_results(results_path, "ridlMID", "fixed40000", 21, 70); 
