@@ -1,7 +1,5 @@
 # Environmentally appropriate vector control is facilitated by standard metrics for simulation-based evaluation
 
-Code and data for journal publication [[link]](https://www.frontiersin.org/articles/10.3389/fitd.2022.953212/full)
-
 Authors: Váleri N. Vásquez<sup>1,2</sup>, Michael R. Reddy<sup>3</sup>, John M. Marshall<sup>4,5</sup>
 
 Affiliations: 
